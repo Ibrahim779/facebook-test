@@ -1,17 +1,18 @@
 <div class="loadMore">
     <div class="central-meta item" style="display: inline-block;">
+        @foreach($posts as $post)
         <div class="user-post">
             <div class="friend-info">
                     <figure>
                     <img  src="{{asset('assets/index/user.png')}}" alt="">
                 </figure>
                 <div class="friend-name">
-                    <ins><a href="" title="">Test</a>
+                    <ins><a href="" title="">{{$post->user->name}}</a>
                         <a href="" title="" class="underline ml-3">
                             follow
                         </a>
                     </ins>
-                    <span>published: Test</span>
+                    <span>published: 2-2-2000</span>
                 </div>
 
                 <div class="post-meta">
@@ -26,12 +27,6 @@
                         </a>
                     <div class="we-video-info">
                         <ul>
-{{--                            <li>--}}
-{{--                                <span class="views" data-toggle="tooltip" title="" data-original-title="views">--}}
-{{--                                    <i class="fa fa-eye"></i>--}}
-{{--                                    <ins>1.2k</ins>--}}
-{{--                                </span>--}}
-{{--                            </li>--}}
                             <li>
                                 <span class="comment" data-toggle="tooltip" title="" data-original-title="Comments">
                                     <i class="fa fa-comments-o"></i>
@@ -55,11 +50,11 @@
                                      </span>
                                 </a>
                             </li>
-
                         </ul>
                     </div>
                 </div>
             </div>
+{{--            $post->comments->get() as $comment--}}
             <div class="coment-area">
                 <ul class="we-comet">
                     <li>
@@ -113,5 +108,6 @@
                 </ul>
             </div>
         </div>
+        @endforeach
     </div>
 </div>
