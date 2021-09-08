@@ -6,15 +6,15 @@
             </a>
         </figure>
         <div class="newpst-input">
-            <form action="#" method="post" enctype="multipart/form-data">
+            <form action="{{route("posts.store")}}" method="post" enctype="multipart/form-data">
                 @csrf
-                <textarea name="description" rows="2" placeholder="write something"></textarea>
+                <textarea name="body" rows="2" placeholder="what do you think?"></textarea>
                 <div class="attachments">
                     <ul>
                         <li>
                             <i class="fa fa-image"></i>
                             <label class="fileContainer">
-                                <input name="image" type="file">
+                                <input name="img" type="file">
                             </label>
                         </li>
                         <li>

@@ -8,7 +8,7 @@
                         <div class="row merged20" id="page-contents">
                             @include('site.parts.sidebar.left.index')
                             @include('site.parts.content.index')
-{{--                            @include('site.parts.sidebar.right.index')--}}
+                            @include('site.parts.sidebar.right.index')
                         </div>
                     </div>
                 </div>
