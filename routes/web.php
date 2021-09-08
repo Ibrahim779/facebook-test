@@ -32,6 +32,7 @@ Route::middleware('auth')->group(function(){
 });
 //test
 Route::view('/posts', 'site.index');
+Route::view('/show', 'site.index');
 Route::view('/users', 'site.users.show');
 Route::view('/followers', 'site.users.followers');
 
