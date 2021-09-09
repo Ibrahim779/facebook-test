@@ -3,17 +3,22 @@
         @foreach($posts as $post)
         <div class="user-post">
 
-            <div class="friend-info">
+            <div class="friend-info" style="position: relative;">
                     <figure>
                     <img  src="{{asset('assets/index/user.png')}}" alt="">
                 </figure>
                 <div class="friend-name">
-                    <ins><a href="" title="">{{$post->user->name}}</a>
+                    <ins >
+                        <a href="" title="">{{$post->user->name}}</a>
                         <a href="" title="" class="underline ml-3">
                             follow
                         </a>
-                        <i class="fas fa-edit"></i>
-                        <i class="fas fa-trash"></i>
+{{--                        <i class="fas fa-edit"></i>--}}
+{{--                        <i class="fas fa-trash"></i>--}}
+                        <div style="position: absolute; top:0 ;right:0" >
+                            <a href="#"><i class="fas fa-edit"></i></a>
+                            <a href="#"><i class="fas fa-trash"></i></i></a>
+                        </div>
                     </ins>
                     <span>published: {{$post->created_at->diffForHumans()}}</span>
                 </div>
