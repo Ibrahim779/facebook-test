@@ -2,10 +2,10 @@
     <h4 class="widget-title">Shortcuts</h4>
     <ul class="naves">
         <li>
-            <a href="#">Posts</a>
+            <a href="{{route("posts.index")}}">Posts</a>
         </li>
         <li>
-            <a href="#">Users</a>
+            <a href="{{route("users.index")}}">Users</a>
         </li>
         <li>
             <form action="#" method="post">

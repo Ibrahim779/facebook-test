@@ -2,7 +2,6 @@
     <div class="central-meta item" style="display: inline-block;">
         @foreach($posts as $post)
         <div class="user-post">
-
             <div class="friend-info" style="position: relative;">
                     <figure>
                     <img  src="{{asset('assets/index/user.png')}}" alt="">
@@ -14,51 +13,57 @@
                             follow
                         </a>
                         <div style="position: absolute; top:0 ;right:0" >
-                            <i class="fas fa-edit"></i>
-                            <i class="fas fa-trash"></i>
+                            <a href="{{route("posts.edit",$post->id)}}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                            <form action="{{route("posts.destroy",$post->id)}}" method="post" style="display: inline-block;">
+                                @csrf
+                                @method("DELETE")
+                                <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                            </form>
+
                         </div>
                     </ins>
                     <span>published: {{$post->created_at->diffForHumans()}}</span>
                 </div>
 
-                <div class="post-meta">
-                    <div class="description">
+                <a href="{{route("posts.show",$post->id)}}">
+                    <div class="post-meta">
+                        <div class="description">
 
-                        <p>
-                            {{$post->body}}
-                        </p>
-                    </div>
-                        <a href="/">
-                    <img src="{{asset('assets/profile/cover.jpg')}}" alt="">
-                        </a>
-                    <div class="we-video-info">
-                        <ul>
-                            <li>
+                            <p>
+                                {{$post->body}}
+                            </p>
+                        </div>
+                            <img src="{{asset('assets/profile/cover.jpg')}}" alt="">
+                        <div class="we-video-info">
+                            <ul>
+                                <li>
                                 <span class="comment" data-toggle="tooltip" title="" data-original-title="Comments">
                                     <i class="fa fa-comments-o"></i>
                                     <ins>{{$post->comments->count()}}</ins>
                                 </span>
-                            </li>
-                            <li>
-                                <a href="">
+                                </li>
+                                <li>
+                                    <a href="">
                                 <span class="like" data-toggle="tooltip" title="" data-original-title="like">
                                    <i class="fas fa-heart"></i>
                                     <ins>2</ins>
                                 </span>
-                                </a>
-                            </li>
+                                    </a>
+                                </li>
 
-                            <li>
-                                <a href="">
+                                <li>
+                                    <a href="">
                                      <span class="dislike" data-toggle="tooltip" title="" data-original-title="dislike">
                                         <i class="fas fa-heart-broken"></i>
                                        <ins>1</ins>
                                      </span>
-                                </a>
-                            </li>
-                        </ul>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
+                </a>
+
             </div>
             <div class="coment-area">
                 <ul class="we-comet">
@@ -102,6 +107,7 @@
                 </ul>
             </div>
         </div>
+            <hr style="color: #fff ; height: 3px;font-size: 100px;background-color: #505050;">
         @endforeach
     </div>
 </div>
