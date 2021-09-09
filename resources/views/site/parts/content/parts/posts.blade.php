@@ -13,19 +13,9 @@
                         <a href="" title="" class="underline ml-3">
                             follow
                         </a>
-{{--                        <i class="fas fa-edit"></i>--}}
-{{--                        <i class="fas fa-trash"></i>--}}
                         <div style="position: absolute; top:0 ;right:0" >
-                            <form action="/posts/{{$post->id}}/edit" method="post">
-                                @method("DELETE")
-                                @csrf
-                                <button>Edit</button>
-                            </form>
-                            <form action="/posts/{{$post->id}}" method="post">
-                                @method("DELETE")
-                                @csrf
-                                <button>DELETE</button>
-                            </form>
+                            <i class="fas fa-edit"></i>
+                            <i class="fas fa-trash"></i>
                         </div>
                     </ins>
                     <span>published: {{$post->created_at->diffForHumans()}}</span>
