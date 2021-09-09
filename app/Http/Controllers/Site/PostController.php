@@ -48,7 +48,7 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post_id)
     {
         //
     }
@@ -65,14 +65,9 @@ class PostController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function destroy(Post $post_id)
     {
-        //
+        $post_id->delete();
+        return back();
     }
 }

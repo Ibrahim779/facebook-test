@@ -26,6 +26,7 @@ Route::middleware('auth')->group(function(){
 Route::get('/posts',[PostController::class,"index"])->name("posts.index");
 Route::post('/posts',[PostController::class,"store"])->name("posts.store");
 Route::post('/posts/{post}/comments',[PostCommentsController::class,"store"])->name("posts.comments.store");
+Route::delete('/posts/{post_id}',[PostController::class,"destroy"]);
 Route::view('/users', 'site.users.show');
 Route::view('/followers', 'site.users.followers');
 

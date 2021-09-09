@@ -16,8 +16,16 @@
 {{--                        <i class="fas fa-edit"></i>--}}
 {{--                        <i class="fas fa-trash"></i>--}}
                         <div style="position: absolute; top:0 ;right:0" >
-                            <a href="#"><i class="fas fa-edit"></i></a>
-                            <a href="#"><i class="fas fa-trash"></i></i></a>
+                            <form action="/posts/{{$post->id}}/edit" method="post">
+                                @method("DELETE")
+                                @csrf
+                                <button>Edit</button>
+                            </form>
+                            <form action="/posts/{{$post->id}}" method="post">
+                                @method("DELETE")
+                                @csrf
+                                <button>DELETE</button>
+                            </form>
                         </div>
                     </ins>
                     <span>published: {{$post->created_at->diffForHumans()}}</span>
