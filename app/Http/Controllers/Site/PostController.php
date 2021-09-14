@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PostStoreRequest;
+use App\Http\Requests\PostUpdateRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -37,9 +38,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
-        //
+        return view('site.posts.show',compact('post'));
     }
 
     /**
@@ -48,9 +49,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post_id)
+    public function edit(Post $post)
     {
-        //
+        return view('site.posts.edit', compact('post'));
     }
 
     /**
@@ -60,14 +61,15 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostUpdateRequest $request,Post $post)
     {
-        //
+        $post->update($request->all());
+        return back();
     }
 
-    public function destroy(Post $post_id)
+    public function destroy(Post $post)
     {
-        $post_id->delete();
-        return back();
+        $post->delete();
+        return redirect()->route('posts.index');
     }
 }

@@ -13,29 +13,28 @@
             <div class="tab-content">
                 <div class="tab-pane active fade show" id="frends">
                     <ul class="nearby-contct">
-
+                        @forelse($users as $user)
                         <li>
                             <div class="nearly-pepls">
                                 <figure>
-                                    <a href="" title=""> <img
-                                            src="{{asset('assets/profile/cover.jpg')}}"
-                                            alt=""
-                                        >
+                                    <a href="{{route("users.show",$user->id)}}" title="">
+                                        <img src="{{asset('assets/index/user.png')}}" alt="">
                                     </a>
                                 </figure>
                                 <div class="pepl-info">
-                                    <h4><a href="" title="">Name</a></h4>
-                                    <span>Email</span>
+                                    <h4><a href="{{route("users.show",$user->id)}}" title="">{{$user->name}}</a></h4>
+                                    <span>{{$user->email}}</span>
                                     <a href="" title="" class="add-butn">
                                         follow
                                     </a>
                                 </div>
                             </div>
                         </li>
+                        @empty
                             <li>
-                                Not Found Followers
+                                Not Found users
                             </li>
-
+                        @endforelse
                     </ul>
                     <div class="lodmore"><button class="btn-view btn-load-more"></button></div>
                 </div>

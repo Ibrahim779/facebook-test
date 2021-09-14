@@ -4,6 +4,7 @@
 use App\Http\Controllers\Site\AuthController;
 use App\Http\Controllers\Site\PostCommentsController;
 use App\Http\Controllers\Site\PostController;
+use App\Http\Controllers\Site\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -23,10 +24,10 @@ Route::middleware('auth')->group(function(){
 
 });
 //test
-Route::get('/posts',[PostController::class,"index"])->name("posts.index");
-Route::post('/posts',[PostController::class,"store"])->name("posts.store");
+Route::resource('posts',PostController::class);
 Route::post('/posts/{post}/comments',[PostCommentsController::class,"store"])->name("posts.comments.store");
-Route::delete('/posts/{post_id}',[PostController::class,"destroy"]);
-Route::view('/users', 'site.users.show');
-Route::view('/followers', 'site.users.followers');
+///////////////////////////////////////////////////////
+Route::resource('users',UserController::class)->only(["index","show"]);
+///////////////////////////////////////////////////////////
+Route::get('/friends', [UserController::class,"friends"]);
 
