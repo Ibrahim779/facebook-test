@@ -16,8 +16,7 @@ class CommentResource extends JsonResource
     {
         return
         [
-            'Post_Info'=> new PostCommentsResource($this->post),
-            'BodyOfComment'=>$this->body,
+            'body'=>$this->body,
         ];
 
     }

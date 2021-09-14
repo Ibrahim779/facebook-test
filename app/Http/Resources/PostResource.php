@@ -10,9 +10,10 @@ class PostResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'User_Info'=> new UserPostResource($this->user),
-            'IdOfPost'=>$this->id,
-            'BodyOfPost'=>$this->body,
+            'id'=>$this->id,
+            'body'=>$this->body,
+            'comments'=> CommentResource::collection($this->comments),
+            'user'=> new UserResource($this->user),
         ];
     }
 }

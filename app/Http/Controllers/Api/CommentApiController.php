@@ -12,7 +12,7 @@ class CommentApiController extends Controller
 {
     public function index($post)
     {
-      $comments = Comment::where('post_id', '=',$post)->get();
+      $comments = Comment::where('post_id',$post)->get();
       return CommentResource::collection($comments);
     }
 }
