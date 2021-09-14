@@ -19,7 +19,7 @@ class PostController extends Controller
     public function index()
     {
 
-        $posts = Post::latest()->get();
+        $posts = Post::with('user')->latest()->get();
         return view('site.index',compact('posts'));
 
     }
@@ -27,8 +27,7 @@ class PostController extends Controller
 
     public function store(PostStoreRequest $request)
     {
-//        $user_id=Auth::id();
-        Post::create($request->merge(["user_id"=>"1"])->all());
+        Post::create($request->merge(["user_id"=>auth()->id()])->all());
         return back();
     }
 

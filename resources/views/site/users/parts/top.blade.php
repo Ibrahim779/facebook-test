@@ -2,12 +2,14 @@
     <div class="feature-photo">
         <figure><img style="width: 100%; height: 450px" src="{{asset('assets/profile/cover.jpg')}}" alt=""></figure>
         <div class="add-btn">
-            <span>1 Followers</span>
-                <a href="" title="" class="underline ml-3">
-                    Follow
+            @include('site.users.parts.friend-button', ['user_id' => $user->id])
+            @if($user->id == auth()->id())
+                <a href="{{route('users.edit', $user->id)}}">
+                    <span class=" ml-2"><i class="fas fa-edit"></i> Edit Profile</span>
                 </a>
-
+                @endif
         </div>
+        @if($user->id == auth()->id())
         <form method="post" action="" enctype="multipart/form-data" class="edit-phto">
             @method('PATCH')
             @csrf
@@ -18,26 +20,27 @@
             </label>
             <button type="submit">change</button>
         </form>
-
+        @endif
         <div class="container-fluid">
             <div class="row merged">
                 <div class="col-lg-2 col-sm-3">
                     <div class="user-avatar">
                         <figure>
-                            <img src="{{asset('assets/index/user.png')}}"
+                            <img src="{{$user->image}}"
                                  alt=""
                             >
-
-                            <form method="post" action="" enctype="multipart/form-data" class="edit-phto">
+                            @if($user->id == auth()->id())
+                            <form method="post" action="{{route('users.update', $user->id)}}" enctype="multipart/form-data" class="edit-phto">
                                 @method('PATCH')
                                 @csrf
                                 <i class="fa fa-camera-retro"></i>
                                 <label class="fileContainer">
                                     Edit Display Photo
-                                    <input name="avatar" type="file">
+                                    <input name="img" type="file">
                                 </label>
                                 <button type="submit">change</button>
                             </form>
+                                @endif
                         </figure>
                     </div>
                 </div>
@@ -45,12 +48,14 @@
                     <div class="timeline-info">
                         <ul>
                             <li class="admin-name">
-                                <h5>Ali</h5>
-                                <span>Ali@Ali.com</span>
+                                <h5>{{$user->name}}</h5>
+                                <span>{{$user->email}}</span>
                             </li>
                             <li>
-                                <a class="" href="" title="" data-ripple="">time line</a>
-                                <a class="" href="" title="" data-ripple="">Followers</a>
+                                <a class="" href="{{route('users.show', $user->id)}}" title="" data-ripple="">time line</a>
+                                @if($user->id == auth()->id())
+                                <a class="" href="{{route('users.friends', $user->id)}}" title="" data-ripple="">Friends</a>
+                                @endif
                             </li>
                         </ul>
                     </div>

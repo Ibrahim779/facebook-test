@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\Site\AuthController;
+use App\Http\Controllers\Site\FriendRequestController;
 use App\Http\Controllers\Site\PostCommentsController;
 use App\Http\Controllers\Site\PostController;
 use App\Http\Controllers\Site\UserController;
@@ -21,13 +22,15 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function(){
-
+    Route::get('/', [PostController::class, 'index'])->name('site.index');
+    Route::resource('posts',PostController::class);
+    Route::post('/posts/{post}/comments',[PostCommentsController::class,"store"])->name("posts.comments.store");
+    Route::resource('users',UserController::class)->except(["store"]);
+    Route::get('/users/{user}/friends', [UserController::class,"friends"])->name('users.friends');
+    Route::post('/friends', [FriendRequestController::class,"store"])->name('friends.store');
+    Route::delete('/friends/{friend}', [FriendRequestController::class,"destroy"])->name('friends.destroy');
+    Route::patch('/friends/{friend}', [FriendRequestController::class,"update"])->name('friends.update');
+    Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 });
-//test
-Route::resource('posts',PostController::class);
-Route::post('/posts/{post}/comments',[PostCommentsController::class,"store"])->name("posts.comments.store");
-///////////////////////////////////////////////////////
-Route::resource('users',UserController::class)->only(["index","show"]);
-///////////////////////////////////////////////////////////
-Route::get('/friends', [UserController::class,"friends"]);
+
 

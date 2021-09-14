@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -53,5 +54,57 @@ class User extends Authenticatable
     {
         return $this->hasMany(Comment::class);
     }
+
+    public function setPasswordAttribute($password)
+    {
+        return $this->attributes['password'] = Hash::make($password);
+    }
+
+    public function setImgAttribute($img)
+    {
+        if ($this->img){
+            Storage::disk('public')->delete($this->img);
+        }
+        return $this->attributes['img'] =  $img->store('users', 'public');
+    }
+
+    public function getImageAttribute()
+    {
+        return $this->img?url('storage').'/'.$this->img:asset('assets/index/user.png');
+    }
+
+    public function scopeFriends($query)
+    {
+        return $query->whereHas('senders', function($q){
+            $q->whereAccept(1)->where('user_id', auth()->id());
+        })->orWhereHas('sendRequest', function($q){
+            $q->whereAccept(1)->whereSenderId(auth()->id());
+        });
+    }
+
+    public function scopeSendRequests($query)
+    {
+        return $query->whereHas('sendRequest', function($q){
+            $q->whereAccept(0)->whereSenderId(auth()->id());
+        });
+    }
+
+    public function scopeFriendsRequest($query)
+    {
+        return $query->whereHas('senders', function($q){
+            $q->whereAccept(0)->Where('user_id',auth()->id());
+        });
+    }
+
+    public function senders()
+    {
+        return $this->hasMany(FriendRequest::class, 'sender_id');
+    }
+
+    public function sendRequest()
+    {
+        return $this->hasMany(FriendRequest::class, 'user_id');
+    }
+
 
 }

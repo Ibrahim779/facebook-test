@@ -1,8 +1,8 @@
 <div class="central-meta new-pst">
     <div class="new-postbox">
         <figure>
-            <a href="#">
-            <img  src="{{asset('assets/index/user.png')}}" alt="">
+            <a href="{{route('users.show', auth()->id())}}">
+            <img  src="{{auth()->user()->image}}" alt="">
             </a>
         </figure>
         <div class="newpst-input">
