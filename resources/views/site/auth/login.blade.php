@@ -1,6 +1,6 @@
 @extends('site.auth.layout.login-layout')
 
-@section('title', __('admin.login'))
+@section('title', 'Login')
 
 @section('content')
     <div class="limiter">
@@ -12,7 +12,7 @@
                     <i class="fa fa-arrow-left fa-3x" aria-hidden="true"></i>
                     </a>
                     <span class="login100-form-title p-b-49">
-						{{__('admin.login')}}
+						Login
 					</span>
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -25,14 +25,14 @@
                         </div>
                     @endif
                     <div class="wrap-input100 validate-input m-b-23" data-validate="Email is reauired">
-                        <span class="label-input100">{{__('admin.email')}}</span>
-                        <input value="{{old('email')}}" class="input100" type="email" name="email" placeholder="{{__('admin.email')}}">
+                        <span class="label-input100">Email</span>
+                        <input value="{{old('email')}}" class="input100" type="email" name="email" placeholder="Email">
                         <span class="focus-input100" data-symbol="&#xf206;"></span>
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Password is required">
-                        <span class="label-input100">{{__('admin.password')}}</span>
-                        <input class="input100" type="password" name="password" placeholder="{{__('admin.password')}}">
+                        <span class="label-input100">Password</span>
+                        <input class="input100" type="password" name="password" placeholder="Password">
                         <span class="focus-input100" data-symbol="&#xf190;"></span>
                     </div>
 
@@ -40,17 +40,17 @@
                         <div class="wrap-login100-form-btn">
                             <div class="login100-form-bgbtn"></div>
                             <button  class="login100-form-btn">
-                                {{__('admin.login')}}
+                                Login
                             </button>
                         </div>
                     </div>
                     <div class="flex-col-c p-t-155">
 						<span class="txt1 p-b-17">
-							{{__('site.register')}}
+							Register
 						</span>
 
                         <a href="{{route('registerForm')}}" class="txt2">
-                            {{__('site.register')}}
+                            Register
                         </a>
                     </div>
                 </form>

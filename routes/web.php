@@ -15,7 +15,7 @@ Route::middleware('guest')->group(function () {
 
     Route::view('register', 'site.auth.register')->name('registerForm');
 
-    Route::post('register', [AuthController::class, 'login'])->name('register');
+    Route::post('register', [AuthController::class, 'register'])->name('register');
 
 });
 

@@ -1,6 +1,6 @@
 @extends('site.auth.layout.login-layout')
 
-@section('title', __('admin.login'))
+@section('title', 'Register')
 
 @section('content')
     <div class="limiter">
@@ -12,7 +12,7 @@
                         <i class="fa fa-arrow-left fa-3x" aria-hidden="true"></i>
                     </a>
                     <span class="login100-form-title p-b-49">
-						{{__('site.register')}}
+						Register
 					</span>
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -26,23 +26,23 @@
                     @endif
 
                     <div class="wrap-input100 validate-input m-b-23" data-validate="Name is required">
-                        <span class="label-input100">{{__('site.first_name')}}</span>
-                        <input class="input100" type="text" name="first_name"
-                               value="{{old('first_name')??''}}"
-                               placeholder="{{__('site.name')}}">
+                        <span class="label-input100">Name</span>
+                        <input class="input100" type="text" name="name"
+                               value="{{old('name')??''}}"
+                               placeholder="Name">
 
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Email is required">
-                        <span class="label-input100">{{__('site.email')}}</span>
+                        <span class="label-input100">Email</span>
                         <input class="input100" type="email" name="email"
                                value="{{old('email')??''}}"
-                               placeholder="{{__('site.email')}}">
+                               placeholder="Email">
 
                     </div>
                     <div class="wrap-input100 validate-input" data-validate="Password is required">
-                        <span class="label-input100">{{__('site.password')}}</span>
-                        <input class="input100" type="password" name="password" placeholder="{{__('site.password')}}">
+                        <span class="label-input100">Password</span>
+                        <input class="input100" type="password" name="password" placeholder="Password">
 
                     </div>
                     <div class="text-right p-t-8 p-b-31">
@@ -52,18 +52,18 @@
                         <div class="wrap-login100-form-btn">
                             <div class="login100-form-bgbtn"></div>
                             <button  class="login100-form-btn">
-                                {{__('admin.register')}}
+                                Register
                             </button>
                         </div>
                     </div>
 
                     <div class="flex-col-c p-t-155">
 						<span class="txt1 p-b-17">
-							{{__('site.login')}}
+							Login
 						</span>
 
                         <a href="{{route('login')}}" class="txt2">
-                            {{__('site.login')}}
+                            Login
                         </a>
                     </div>
                 </form>
