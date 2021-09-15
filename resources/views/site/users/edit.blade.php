@@ -18,11 +18,11 @@
                                                 <div class="form-row">
                                                     <div class="form-group col-md-6">
                                                         <label for="name">Name</label>
-                                                        <input style="color: #969696" type="text" name="name" class="form-control" id="name" placeholder="Enter Your Name" value="{{$user->name}}">
+                                                        <input style="color: #969696" type="text" name="name" class="form-control" id="name" required placeholder="Enter Your Name" value="{{$user->name}}">
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="email">Email</label>
-                                                        <input style="color: #969696" type="email" name="email" class="form-control" id="email" placeholder="Enter Your Email" value="{{$user->email}}">
+                                                        <input style="color: #969696" type="email" name="email" class="form-control" id="email" required placeholder="Enter Your Email" value="{{$user->email}}">
                                                     </div>
                                                 </div>
                                                 <button type="submit" class="btn btn-primary">Edit</button>
