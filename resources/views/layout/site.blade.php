@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0038)http://www.wpkixx.com/html/winku-dark/ -->
 <html lang="en" class=" ">
 <head>
     @include('site.includes.styles')
@@ -8,11 +7,10 @@
     @include('site.includes.scripts')
 </head>
 <body>
-@include('site.includes.nav')
+
 <!--<div class="se-pre-con"></div>-->
 <div id="mm-0" class="mm-page mm-slideout">
     <div class="theme-layout">
-        @include('site.includes.header')
 
         @yield('content')
 

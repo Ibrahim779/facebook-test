@@ -10,8 +10,7 @@
                 @endif
         </div>
         @if($user->id == auth()->id())
-        <form method="post" action="" enctype="multipart/form-data" class="edit-phto">
-            @method('PATCH')
+        <form action="" enctype="multipart/form-data" class="edit-phto">
             @csrf
             <i class="fa fa-camera-retro"></i>
             <label class="fileContainer">
