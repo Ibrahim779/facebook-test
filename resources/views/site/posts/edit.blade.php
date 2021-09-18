@@ -36,7 +36,7 @@
                                                 </div>
 {{--                                                <img src="{{$post->image}}" style="width:150px; height:150px" >--}}
                                             </form>
-                                            <img id="postEditImage" src="{{$post->image}}" style="width:120px; height:100px; margin-top:15px">
+                                            <img id="postEditImage" src="{{$post->image}}" style="{{$post->image?'':'display:none'}} width:120px; height:100px; margin-top:15px">
                                         </div>
                                     </div>
                                 </div><!-- add post new box -->
