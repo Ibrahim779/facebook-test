@@ -70,7 +70,7 @@
                 @if($comment)
                     <li>
                         <div class="comet-avatar">
-                            <img src="{{$post->user->image}}" alt="">
+                            <img src="{{$comment->user->image}}" alt="">
                         </div>
                         <div class="we-comment">
                             <div class="coment-head">
