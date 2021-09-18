@@ -12,7 +12,6 @@ class PostApiController extends Controller
 {
     public function index($user)
     {
-        $posts = Post::where('user_id', $user)->get();
-        return PostResource::collection($posts);
+        return PostResource::collection(Post::whereUserId($user)->get());
     }
 }

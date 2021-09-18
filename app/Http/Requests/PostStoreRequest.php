@@ -26,11 +26,8 @@ class PostStoreRequest extends FormRequest
     public function rules()
     {
         return [
-//            "body" =>"required_if:img,null",
-//            "body" =>"required",
-//            "img" =>"required_if:body,null",
             "body" => Rule::requiredIf(!$this->img),
-            "img" =>Rule::requiredIf(!$this->body)
+            "img" => Rule::requiredIf(!$this->body)
         ];
     }
 

@@ -4,7 +4,7 @@
     @include('site.includes.styles')
     @include('site.includes.meta')
     @include('site.includes.links')
-    @include('site.includes.scripts')
+
 </head>
 <body>
 
@@ -14,11 +14,10 @@
 
         @yield('content')
 
-        @include('site.includes.spinner')
     </div>
 </div>
 
-@include('site.includes.latest_scripts')
+@include('site.includes.scripts')
 
 <div id="mm-blocker" class="mm-slideout"></div>
 </body>

@@ -53,7 +53,7 @@
                             </li>
                         @empty
                             <li>
-                                You Haven't Friend Request
+                                You Haven't Send Request
                             </li>
                         @endforelse
                     </ul>
@@ -103,7 +103,7 @@
                             </li>
                         @empty
                             <li>
-                                You Haven't Friend Request
+                                Not Found Users
                             </li>
                         @endforelse
                     </ul>

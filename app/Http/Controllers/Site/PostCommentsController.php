@@ -14,8 +14,11 @@ class PostCommentsController extends Controller
 
     public function store(CommentStoreRequest $request,Post $post)
     {
-        Comment::create($request->merge(["user_id"=> auth()->id(),
-            "post_id"=>$post->id])->all());
+        Comment::create($request->merge([
+            "user_id"=> auth()->id(),
+            "post_id"=>$post->id
+            ])->all());
+
         return back();
     }
 }

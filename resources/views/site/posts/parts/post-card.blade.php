@@ -74,7 +74,7 @@
                         </div>
                         <div class="we-comment">
                             <div class="coment-head">
-                                <h5><a href="" title="">
+                                <h5><a href="{{route('users.show', $comment->user->id)}}" title="">
                                         {{$comment->user->name}}
                                     </a>
                                 </h5>
@@ -89,7 +89,7 @@
             @endforeach
             <li class="post-comment">
                 <div class="comet-avatar">
-                    <img src={{$post->user->image}}" alt="">
+                    <img src="{{auth()->user()->image}}" alt="userImage">
                 </div>
                 <div class="post-comt-box">
                     <form action="{{route("posts.comments.store",$post->id)}}" method="post">

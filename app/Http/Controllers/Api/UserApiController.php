@@ -13,8 +13,7 @@ class UserApiController extends Controller
 {
     public function index()
     {
-        $users=User::all();
-        return UserResource::collection($users);
+        return UserResource::collection(User::all());
     }
 
 

@@ -25,8 +25,8 @@ class PostUpdateRequest extends FormRequest
      */
     public function rules()
     {
-        $post=Post::find($this->id);
-//        dd($post->img);
+        $post = Post::find($this->id);
+
         return [
             "body" => Rule::requiredIf(!$this->img&&!$post->img),
             "img" =>Rule::requiredIf(!$this->body&&!$post->img)

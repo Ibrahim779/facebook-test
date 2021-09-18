@@ -1,6 +1,3 @@
-
-<link rel="icon" href="http://www.wpkixx.com/html/winku-dark/images/fav.png" type="image/png" sizes="16x16">
-
 <link rel="stylesheet" href="{{asset('assets/index/main.min.css')}}">
 <link rel="stylesheet" href="{{asset('assets/index/style.css')}}">
 <link rel="stylesheet" href="{{asset('assets/index/color.css')}}">

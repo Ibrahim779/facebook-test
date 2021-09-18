@@ -11,8 +11,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get("/users", [UserApiController::class, "index"]);
-//////////////////////////////////
-Route::get("/users/{user}/posts", [PostApiController::class, "index"]);
-///////////////////////////////////
-Route::get("/posts/{post}/comments", [CommentApiController::class, "index"]);
+Route::get("users", [UserApiController::class, "index"]);
+
+Route::get("users/{user}/posts", [PostApiController::class, "index"]);
+
+Route::get("posts/{post}/comments", [CommentApiController::class, "index"]);

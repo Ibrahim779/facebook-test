@@ -13,12 +13,14 @@ class Post extends Model
 
     protected $guarded = [];
 
-    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    protected $with = ['user', 'comments'];
+
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function comments(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function comments()
     {
         return $this->hasMany(Comment::class);
     }
