@@ -12,9 +12,10 @@
         <form action="{{route('friends.destroy', $sendRequest->id)}}" method="post" style="display: inline-block;">
             @csrf
             @method('DELETE')
-            <button type="submit" class="btn-sm btn-danger ml-2"><i class="fas fa-user-alt-slash"></i> Cancel Request</button>
+            <button type="submit" style="{{$position?'position:absolute; top:0px; right:0px':''}}" class="btn-sm btn-danger ml-2" ><i class="fas fa-user-alt-slash"></i> Cancel Request</button>
         </form>
     @elseif($friendRequest)
+    <div style="{{$position?'position:absolute; top:0px; right:0px':''}}">
         <form action="{{route('friends.update', $friendRequest->id)}}" method="post" style="display: inline-block;">
             @csrf
             @method('PATCH')
@@ -23,20 +24,21 @@
         <form action="{{route('friends.destroy', $friendRequest->id)}}" method="post" style="display: inline-block;">
             @csrf
             @method('DELETE')
-            <button type="submit" class="btn-sm btn-danger ml-2"><i class="fas fa-user-alt-slash"></i> Cancel</button>
+            <button type="submit" class="btn-sm btn-danger ml-2"  ><i class="fas fa-user-alt-slash"></i> Cancel</button>
         </form>
+    </div>
     @elseif($myFriend)
         <span  class=" ml-2"><i class="fas fa-user-friends"></i></span>
             <form action="{{route('friends.destroy', $myFriend->id)}}" method="post" style="display: inline-block;">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn-sm btn-danger ml-2"><i class="fas fa-user-times"></i></button>
+                <button type="submit" class="btn-sm btn-danger ml-2" style="{{$position?'position:absolute; top:0px; right:0px':''}}"><i class="fas fa-user-times"></i> Remove Friend</button>
             </form>
     @else
         <form action="{{route('friends.store')}}" method="post" style="display: inline-block;">
             @csrf
             <input name="user_id" type="hidden" value="{{$user_id}}">
-            <button type="submit" class="btn-sm btn-primary ml-2"><i class="fas fa-user-plus"></i> Add Friend</button>
+            <button type="submit" style="{{$position?'position:absolute; top:0px; right:0px':''}}" class="btn-sm btn-primary ml-2"><i class="fas fa-user-plus"></i> Add Friend</button>
         </form>
     @endif
 @endunless

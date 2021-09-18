@@ -41,7 +41,7 @@ class UserController extends Controller
 
     public function show(User $user)
     {
-        $posts=$user->posts()->get();
+        $posts=$user->posts()->latest()->get();
         return view("site.users.show",compact("posts", "user"));
     }
 

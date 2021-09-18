@@ -2,7 +2,7 @@
     <div class="feature-photo">
         <figure><img style="width: 100%; height: 450px" src="{{asset('assets/profile/cover.jpg')}}" alt=""></figure>
         <div class="add-btn">
-            @include('site.users.parts.friend-button', ['user_id' => $user->id])
+            @include('site.users.parts.friend-button', ['user_id' => $user->id,'position' =>false])
             @if($user->id == auth()->id())
                 <a href="{{route('users.edit', $user->id)}}">
                     <span class=" ml-2"><i class="fas fa-edit"></i> Edit Profile</span>

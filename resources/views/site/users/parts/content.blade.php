@@ -1,5 +1,5 @@
 <div class="col-lg-6">
-    <div class="central-meta">
+    <div class="central-meta" style="width:700px;">
         <div class="frnds" style="">
             <ul class="nav nav-tabs">
                 <li class="nav-item"><a class="active" href="#frends" data-toggle="tab">Friends</a> <span>{{$friends->count()}}</span></li>
@@ -22,7 +22,7 @@
                                 <div class="pepl-info">
                                     <h4><a href="{{route("users.show",$friend->id)}}" title="">{{$friend->name}}</a></h4>
                                     <span>{{$friend->email}}</span>
-                                    @include('site.users.parts.friend-button', ['user_id' => $friend->id])
+                                    @include('site.users.parts.friend-button', ['user_id' => $friend->id,'position' => true])
                                 </div>
                             </div>
                         </li>
@@ -47,7 +47,7 @@
                                     <div class="pepl-info">
                                         <h4><a href="{{route("users.show",$friend->id)}}" title="">{{$friend->name}}</a></h4>
                                         <span>{{$friend->email}}</span>
-                                       @include('site.users.parts.friend-button', ['user_id' => $friend->id])
+                                       @include('site.users.parts.friend-button', ['user_id' => $friend->id,'position' => true])
                                     </div>
                                 </div>
                             </li>
@@ -72,7 +72,7 @@
                                     <div class="pepl-info">
                                         <h4><a href="{{route("users.show",$friend->id)}}" title="">{{$friend->name}}</a></h4>
                                         <span>{{$friend->email}}</span>
-                                        @include('site.users.parts.friend-button', ['user_id' => $friend->id])
+                                        @include('site.users.parts.friend-button', ['user_id' => $friend->id,'position' => true])
                                     </div>
                                 </div>
                             </li>
@@ -88,7 +88,7 @@
                     <ul class="nearby-contct">
                         @forelse($users as $user)
                             <li>
-                                <div class="nearly-pepls">
+                                <div class="nearly-pepls" >
                                     <figure>
                                         <a href="{{route("users.show",$user->id)}}" title="">
                                             <img src="{{$user->image}}" alt="">
@@ -97,7 +97,7 @@
                                     <div class="pepl-info">
                                         <h4><a href="{{route("users.show",$user->id)}}" title="">{{$user->name}}</a></h4>
                                         <span>{{$user->email}}</span>
-                                        @include('site.users.parts.friend-button', ['user_id' => $user->id])
+                                        @include('site.users.parts.friend-button', ['user_id' => $user->id,'position' => true])
                                     </div>
                                 </div>
                             </li>

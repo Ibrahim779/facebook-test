@@ -7,7 +7,7 @@
             <ins >
                 <a href="{{route('users.show', $post->user->id)}}" title="">{{$post->user->name}}</a>
 
-                @include('site.users.parts.friend-button', ['user_id' => $post->user->id])
+                @include('site.users.parts.friend-button', ['user_id' => $post->user->id,'position' => true])
                 @if($post->user->id == auth()->id())
                     <div style="position: absolute; top:0 ;right:0" >
                         @if($edit)
