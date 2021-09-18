@@ -29,17 +29,17 @@
                                  alt=""
                             >
                             @if($user->id == auth()->id())
-                            <form method="post" action="{{route('users.update', $user->id)}}" enctype="multipart/form-data" class="edit-phto">
-                                @method('PATCH')
-                                @csrf
-                                <i class="fa fa-camera-retro"></i>
-                                <label class="fileContainer">
-                                    Edit Display Photo
-                                    <input name="img" type="file">
-                                </label>
-                                <button type="submit">change</button>
-                            </form>
-                                @endif
+                                <form method="post" action="{{route('users.update', $user->id)}}" enctype="multipart/form-data" class="edit-phto">
+                                    @method('PATCH')
+                                    @csrf
+                                    <i class="fa fa-camera-retro"></i>
+                                    <label class="fileContainer">
+                                        Edit Display Photo
+                                        <input name="img" type="file">
+                                    </label>
+                                    <button type="submit">change</button>
+                                </form>
+                            @endif
                         </figure>
                     </div>
                 </div>

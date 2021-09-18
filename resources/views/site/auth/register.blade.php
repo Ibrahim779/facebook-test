@@ -62,7 +62,7 @@
 							Login
 						</span>
 
-                        <a href="{{route('login')}}" class="txt2">
+                        <a class="txt2 btn btn-primary" style="color:white"  href="{{route('login')}}">
                             Login
                         </a>
                     </div>

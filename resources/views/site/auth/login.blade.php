@@ -49,7 +49,7 @@
 							Register
 						</span>
 
-                        <a href="{{route('registerForm')}}" class="txt2">
+                        <a class="txt2 btn btn-primary" style="color:white"  href="{{route('registerForm')}}">
                             Register
                         </a>
                     </div>
