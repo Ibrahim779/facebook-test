@@ -73,13 +73,18 @@ class User extends Authenticatable
         return $this->img?url('storage').'/'.$this->img:asset('assets/index/user.png');
     }
 
+    public function scopeWithoutMe($query)
+    {
+        return $query->where('id', '!=', auth()->id());
+    }
+
     public function scopeFriends($query)
     {
         return $query->whereHas('senders', function($q){
             $q->whereAccept(1)->where('user_id', auth()->id());
         })->orWhereHas('sendRequest', function($q){
             $q->whereAccept(1)->whereSenderId(auth()->id());
-        });
+        })->withoutMe();
     }
 
     public function scopeSendRequests($query)

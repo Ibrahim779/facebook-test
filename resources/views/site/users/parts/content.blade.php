@@ -1,11 +1,11 @@
 <div class="col-lg-6">
     <div class="central-meta">
-        <div class="frnds">
+        <div class="frnds" style="">
             <ul class="nav nav-tabs">
                 <li class="nav-item"><a class="active" href="#frends" data-toggle="tab">Friends</a> <span>{{$friends->count()}}</span></li>
                 <li class="nav-item"><a class="" href="#frends-req" data-toggle="tab">Friends Requests</a> <span>{{$friendsRequest->count()}}</span></li>
                 <li class="nav-item"><a class="" href="#send-req" data-toggle="tab">Send Requests</a> <span>{{$sendRequests->count()}}</span></li>
-{{--                <li class="nav-item"><a class="" href="#all-users" data-toggle="tab">All Users</a> <span>{{$users->count()}}</span></li>--}}
+                <li class="nav-item"><a class="" href="#all-users" data-toggle="tab">All Users</a> <span>{{$users->count()}}</span></li>
             </ul>
             <!-- Tab panes -->
             <div class="tab-content">

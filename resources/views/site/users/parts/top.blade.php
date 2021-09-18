@@ -9,17 +9,17 @@
                 </a>
                 @endif
         </div>
-        @if($user->id == auth()->id())
-        <form action="" enctype="multipart/form-data" class="edit-phto">
-            @csrf
-            <i class="fa fa-camera-retro"></i>
-            <label class="fileContainer">
-                Edit Cover Photo
-                <input name="cover" type="file">
-            </label>
-            <button type="submit">change</button>
-        </form>
-        @endif
+{{--        @if($user->id == auth()->id())--}}
+{{--        <form action="" enctype="multipart/form-data" class="edit-phto">--}}
+{{--            @csrf--}}
+{{--            <i class="fa fa-camera-retro"></i>--}}
+{{--            <label class="fileContainer">--}}
+{{--                Edit Cover Photo--}}
+{{--                <input name="cover" type="file">--}}
+{{--            </label>--}}
+{{--            <button type="submit">change</button>--}}
+{{--        </form>--}}
+{{--        @endif--}}
         <div class="container-fluid">
             <div class="row merged">
                 <div class="col-lg-2 col-sm-3">

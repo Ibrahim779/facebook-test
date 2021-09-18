@@ -31,7 +31,7 @@
                                     </div>
                                 </div>
                             </div>
-                            {{--                            @include('site.parts.sidebar.right.index')--}}
+                                                        @include('site.parts.sidebar.right.index')
                         </div>
                     </div>
                 </div>

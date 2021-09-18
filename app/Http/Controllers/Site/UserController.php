@@ -11,9 +11,9 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::all();
+        $users = User::withoutMe()->get();
 
-        $friends = User::friends()->where('id', '!=', auth()->id())->get();
+        $friends = User::friends()->get();
 
         $sendRequests = User::sendRequests()->get();
 
@@ -23,9 +23,9 @@ class UserController extends Controller
     }
     public function friends(User $user)
     {
-        $users = User::all();
+        $users = User::withoutMe()->get();
 
-        $friends = User::friends()->where('id', '!=', auth()->id())->get();
+        $friends = User::friends()->get();
 
         $sendRequests = User::sendRequests()->get();
 

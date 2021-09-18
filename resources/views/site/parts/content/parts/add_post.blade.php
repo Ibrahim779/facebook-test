@@ -14,7 +14,7 @@
                         <li>
                             <i class="fa fa-image"></i>
                             <label class="fileContainer">
-                                <input name="img" type="file">
+                                <input id="imgInp" name="img" type="file">
                             </label>
                         </li>
                         <li>
@@ -23,6 +23,27 @@
                     </ul>
                 </div>
             </form>
+            <img id="postImage" src="#" style="width:120px; height:100px; margin-top:15px;display: none">
         </div>
     </div>
 </div><!-- add post new box -->
+@section('script')
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#postImage').attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#imgInp").change(function(){
+            readURL(this);
+            $('#postImage').css('display', 'block')
+        });
+    </script>
+@endsection

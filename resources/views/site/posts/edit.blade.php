@@ -26,7 +26,7 @@
                                                         <li>
                                                             <i class="fa fa-image"></i>
                                                             <label class="fileContainer">
-                                                                <input name="img" type="file">
+                                                                <input id="imgEditInp" name="img" type="file">
                                                             </label>
                                                         </li>
                                                         <li>
@@ -36,7 +36,7 @@
                                                 </div>
 {{--                                                <img src="{{$post->image}}" style="width:150px; height:150px" >--}}
                                             </form>
-                                            <img src="{{$post->image}}" style="width:120px; height:100px; margin-top:15px;">
+                                            <img id="postEditImage" src="{{$post->image}}" style="width:120px; height:100px; margin-top:15px">
                                         </div>
                                     </div>
                                 </div><!-- add post new box -->
@@ -51,4 +51,24 @@
             </div>
         </div>
     </section>
+@endsection
+@section('script')
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#postEditImage').attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#imgEditInp").change(function(){
+            readURL(this);
+            $('#postEditImage').css('display', 'block')
+        });
+    </script>
 @endsection
