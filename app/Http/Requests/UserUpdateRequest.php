@@ -26,7 +26,7 @@ class UserUpdateRequest extends FormRequest
     {
         return [
             'name' => [Rule::requiredIf(!$this->img), 'min:3|max:255'],
-            'email' => [Rule::requiredIf(!$this->img), 'email'],
+            'email' => [Rule::requiredIf(!$this->img), Rule::unique('users')->ignore($this->user->id),'email'],
         ];
     }
 }
