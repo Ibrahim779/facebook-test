@@ -80,7 +80,7 @@
                                 </h5>
                                 <span>{{$comment->created_at->diffForHumans()}}</span>
 
-                                @if($comment->user->id== auth()->id())
+                                @if($comment->user->id == auth()->id()||$post->user->id == auth()->id())
                                     <form action="{{route("comments.destroy",$comment->id)}}" method="post" style="position: absolute;top: 0;right: 0;">
                                        @csrf
                                       @method("DELETE")
