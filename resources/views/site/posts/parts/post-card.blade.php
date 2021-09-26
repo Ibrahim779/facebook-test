@@ -73,12 +73,20 @@
                             <img src="{{$comment->user->image}}" alt="">
                         </div>
                         <div class="we-comment">
-                            <div class="coment-head">
+                            <div class="coment-head" style="position:relative">
                                 <h5><a href="{{route('users.show', $comment->user->id)}}" title="">
                                         {{$comment->user->name}}
                                     </a>
                                 </h5>
                                 <span>{{$comment->created_at->diffForHumans()}}</span>
+
+                                @if($comment->user->id== auth()->id())
+                                    <form action="{{route("comments.destroy",$comment->id)}}" method="post" style="position: absolute;top: 0;right: 0;">
+                                       @csrf
+                                      @method("DELETE")
+                                     <button type="submit" class="btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                   </form>
+                                @endif
                             </div>
                             <p>
                                 {{$comment->body}}

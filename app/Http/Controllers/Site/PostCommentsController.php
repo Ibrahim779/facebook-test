@@ -21,4 +21,10 @@ class PostCommentsController extends Controller
 
         return back();
     }
+    public function destroy(Comment $commentId)
+    {
+        $commentId->delete();
+
+        return back();
+    }
 }

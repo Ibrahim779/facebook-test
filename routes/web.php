@@ -32,6 +32,8 @@ Route::middleware('auth')->group(function(){
 
     Route::get('users/{user}/friends', [UserController::class,"friends"])->name('users.friends');
 
+    Route::delete('comments/{commentId}',[PostCommentsController::class,"destroy"])->name("comments.destroy");
+
     Route::resource('friends', FriendRequestController::class)->only(['store', 'update', 'destroy']);
 
     Route::post('logout', [AuthController::class, 'logout'])->name('logout');
